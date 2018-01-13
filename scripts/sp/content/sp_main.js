@@ -120,7 +120,7 @@ function normalize(){
 Plotly.plot('graph', [{
     x: x,
     y: y,
-    type: 'bar',
+    line: {width: 0.5,color: 'rgb(0, 0, 0)'}
 }], {
     xaxis: {range: [0, max_event],showgrid: false},
     yaxis: {range: [0, 0.25]},
@@ -146,9 +146,9 @@ function update () {
     compute();
     normalize();
     Plotly.relayout('graph', changes);
-    Plotly.redraw('graph');
-    /*Plotly.animate('graph', {
-        data: [{x: x,y: y,type: 'bar'}],
+    //Plotly.redraw('graph');
+    Plotly.animate('graph', {
+        data: [{x: x,y: y}],
     },{
         transition: {
             duration: 0,
@@ -159,7 +159,7 @@ function update () {
             redraw: true
             //redraw: false
         }
-    });*/
+    });
 }
 
 var canvas_box = document.getElementById('canvas-box');
