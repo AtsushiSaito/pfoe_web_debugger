@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="ja">
+<!--PC用-->
+<head>
+    <script type="text/javascript">
+    if ((navigator.userAgent.indexOf('iPhone') > 0 && navigator.userAgent.indexOf('iPad') == -1) || navigator.userAgent.indexOf('iPod') > 0 || navigator.userAgent.indexOf('Android') > 0){
+        location.href = '/sp/';
+    }
+    </script>
+    <link rel="stylesheet" href="content/style.css">
+    <meta charset="utf-8">
+</head>
+<body>
+    <div id="header">
+        Particle Filter on Episode (WebDebugger for PC)
+    </div>
+    <div class="info">
+        <div class="info_header">Sensor Value</div>
+        <div class="info_list">
+            <font>right_forward: <span id="right_forward">not received.</span></font><br>
+            <font>right_side: <span id="right_side">not received.</span></font><br>
+            <font>left_side: <span id="left_side">not received.</span></font><br>
+            <font>left_forward: <span id="left_forward">not received.</span></font><br>
+        </div>
+        <div class="info_header">Action Value</div>
+        <div class="info_list">
+            <font>linear_x: <span id="linear_x">not received.</span></font><br>
+            <font>angular_z: <span id="angular_z">not received.</span></font><br>
+        </div>
+        <div class="info_header">Parameter</div>
+        <div class="info_list">
+            <font>η: <span id="eta">not received.</span></font><br>
+        </div>
+        <div class="info_header">Button</div>
+        <div class="info_list">
+            <input type="button" value="front_toggle" onclick="request.front_toggle = !request.front_toggle;WebButtons.callService(request);"/>
+            <input type="button" value="mid_toggle" onclick="request.mid_toggle = !request.mid_toggle;WebButtons.callService(request);"/>
+            <input type="button" value="rear_toggle" onclick="request.rear_toggle = !request.rear_toggle;WebButtons.callService(request);"/><br/>
+        </div>
+    </div>
+    <div class="plot">
+        <div id="graph_header">
+            Particle Filter (n=1000)
+        </div>
+        <div id="graph" style="width:900px;height:600px"></div>
+    </div>
+    <div id="footer">
+        Copyright © 2017 Particle Filter on Episode (WebDebugger) All Rights Reserved.
+    </div>
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    <script src="https://static.robotwebtools.org/EventEmitter2/current/eventemitter2.min.js"></script>
+    <script src="https://static.robotwebtools.org/roslibjs/current/roslib.min.js"></script>
+    <script type="text/javascript" src="content/pc_main.js"></script>
+</body>
+</html>

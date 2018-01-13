@@ -1,0 +1,52 @@
+body {
+    width:1400px;
+    color: black;
+    background-color: #F2F2F2;
+    margin-right: auto;
+    margin-left : auto;
+}
+
+div#header {
+    display: block;
+    font-size: 30px;
+    background-color: #FFD464;
+    margin:0 0 10 0px;
+    padding: 20px;
+}
+div#footer {
+    display: block;
+    background-color: #FFD464;
+    margin-top: 10px;
+    padding: 20px;
+}
+
+div#graph_header {
+    background-color: #FFF;
+    font-size: 25px;
+    text-align: center;
+}
+.info_list {
+    font-size: 15px;
+    color: black;
+    padding: 5px;
+}
+.info_header {
+    background-color: #6699ff;
+    padding: 0 10 0 10px;
+    font-size: 20px;
+    text-align: center;
+}
+.info {
+    margin-top: 10px;
+    background-color: #FFF;
+    border: solid 1px gray;
+    vertical-align: top;
+    display: inline-block;
+    width:490px;
+}
+.plot {
+    margin-top: 10px;
+    vertical-align: top;
+    display: inline-block;
+    border: solid 1px gray;
+}

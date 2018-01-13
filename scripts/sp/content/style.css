@@ -1,0 +1,275 @@
+html {
+  height: 100%;
+  overflow: hidden;
+}
+body {
+    margin-top: 0px;
+    margin-bottom: 0px;
+    color: black;
+    background-color: #BFBFCF;
+    margin-right: auto;
+    margin-left : auto;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    overflow: auto;
+    font-family: "ヒラギノ角ゴ ProN W3", "Hiragino Kaku Gothic ProN", "ＭＳ Ｐゴシック", sans-serif;
+    -moz-user-select: none; /* Firefox */
+    -ms-user-select: none; /* Internet Explorer */
+    -khtml-user-select: none; /* KHTML browsers (e.g. Konqueror) */
+    -webkit-user-select: none; /* Chrome, Safari, and Opera */
+    -webkit-touch-callout: none; /* Disable Android and iOS callouts*/
+}
+#wrapper{
+    background: #888;
+    background-image: -webkit-radial-gradient(#444 20%, transparent 0), -webkit-radial-gradient(#444 20%, transparent 0);
+    background-image: radial-gradient(#444 20%, transparent 0), radial-gradient(#444 20%, transparent 0);
+    background-position: 0 0, 10px 10px;
+    -webkit-background-size: 20px 20px;
+    background-size: 20px 20px;
+}
+
+#graph-wrap {
+    font-size: 15px;
+    text-align: center;
+    margin: 0px;
+    vertical-align: top;
+    display: block;
+    margin-bottom: 0px;
+}
+#virtual-pad{
+    -moz-border-radius: 100px;
+    -webkit-border-radius: 100px;
+    border-radius: 100px;
+}
+#canvas-box {
+    height: 100%;
+    width: 100%;
+    background-color: #FFDAB9;
+    background-color: rgba(0,0,0,0.2);
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
+    -moz-border-radius: 100px;
+    -webkit-border-radius: 100px;
+    border-radius: 100px;
+    margin: auto;
+}
+
+.exit_cssbutton{
+    border-radius:50px;
+    -webkit-border-radius:50px;
+    -moz-border-radius:50px;
+    background:#333;
+    height:40px;
+    width:40px;
+    display:block;
+    position:relative;
+}
+.exit_cssbutton:before, .exit_cssbutton:after{
+    content:''; height:6px; width:28px; display:block; background:#fff; border-radius:10px;-webkit-border-radius:10px;-moz-border-radius:10px; position:absolute; top:17px; left:6px; transform:rotate(-45deg);-webkit-transform:rotate(-45deg);-moz-transform:rotate(-45deg);-o-transform:rotate(-45deg);-ms-transform:rotate(-45deg);}
+
+.exit_cssbutton:after{transform:rotate(45deg);-webkit-transform:rotate(45deg);-moz-transform:rotate(45deg);-o-transform:rotate(45deg);-ms-transform:rotate(45deg);}
+
+#header {
+    display: block;
+    font-size: 20px;
+    text-align: center;
+    color: #FFF;
+    padding-bottom: 10px;
+    padding-top: 12px;
+    border-bottom: solid 1px #C4C4C4;
+    background-color: rgba(0,0,0,0.2);
+    -webkit-backdrop-filter: blur(5px);
+    backdrop-filter: blur(5px);
+    -moz-border-radius: 50px;
+}
+
+
+.status-header {
+    background-color: #157DFB;
+    color: #FFF;
+    padding-bottom: 5px;
+    padding-top: 5px;
+    /*background-color: #6699ff;*/
+    font-size: 20px;
+    text-align: center;
+    border-top: solid 1px #000;
+    border-bottom: solid 1px #000;
+    background-color: rgba(0,0,0,0.2);
+    -webkit-backdrop-filter: blur(5px);
+    backdrop-filter: blur(5px);
+}
+
+.status-block {
+    font-size: 15px;
+    color: black;
+    background-color: #FFF;
+    background-color: rgba(255,255,255,0.2);
+    -webkit-backdrop-filter: blur(6px);
+    backdrop-filter: blur(6px);
+    display: inline-block;
+    width: 40%;
+    vertical-align: top;
+    padding: 15px;
+    text-align: left;
+    border: solid 1px #000;
+    margin-top: 10px;
+    -moz-border-radius: 25px;
+    -webkit-border-radius: 25px;
+    border-radius: 25px;
+}
+
+.status-block-header {
+    background-color: orange;
+    padding-top: 2px;
+    padding-bottom: 2px;
+    font-size: 18px;
+    text-align: center;
+    border: solid 1px #000;
+    border-bottom: solid 0px #000;
+    background-color: rgba(0,0,0,0.4);
+    -webkit-backdrop-filter: blur(5px);
+    backdrop-filter: blur(5px);
+    color: #FFF;
+}
+.status-box {
+    font-size: 15px;
+    /*background-color: #F44949;*/
+    background-color: rgba(0,0,0,0.0);
+    -webkit-backdrop-filter: blur(5px);
+    backdrop-filter: blur(5px);
+    width: 100%;
+    /*background-color: #FFD680;*/
+    text-align: center;
+    padding-bottom: 10px;
+    border-bottom: solid 1px #000;
+    display: inline-block;
+    overflow: scroll;
+
+}
+#status-column {
+    font-size:0;
+    vertical-align: top;
+    display: inline-block;
+    height: 100%;
+    width: 100%;
+}
+
+.header-menu-button {
+    padding: 10px 5px;
+    margin-right:3px;
+    margin-left:3px;
+    font-size: 13px;
+    color: #FFF;
+    -webkit-appearance: none;
+    background-color: #157DFB;
+    border-radius: 10px;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    border: 0px solid #157DFB;
+}
+
+#footer{
+    padding-top: 5px;
+    padding-bottom: 5px;
+    text-align: center;
+    position: static;
+    background-color: rgba(0,0,0,0.1);
+    -webkit-backdrop-filter: blur(5px);
+    backdrop-filter: blur(5px);
+}
+
+table{
+    width: 100%;
+    border-collapse: collapse;
+}
+tr:nth-child(even){
+    background:#F2F2F2;
+}
+tr:nth-child(odd){
+    background:#FFF;
+}
+th{
+    background:#222222;
+    color:white;
+}
+th:nth-child(odd){
+    background:#444444;
+}
+th,td{
+    padding-left: 5px;
+    border: solid 1px #000;
+}
+
+#modal-main_menu{
+    width: 100%;
+    position:fixed;
+    top: 0px;
+    left: 0px;
+    text-align: center;
+}
+
+#contents {
+    z-index: 0;
+    font-size: 16px;
+}
+/* モーダル コンテンツエリア */
+#modal-main {
+    display: none;
+    z-index: 2;
+    width: 90%;
+    height: 90%;
+    margin: 0;
+    padding: 0;
+    color: #000;
+    position:fixed;
+}
+
+#pad_stop {
+    position:fixed;
+    top: 0px;
+    left: 0px;
+}
+
+#canvas_evenname {
+    width:auto;
+    background-color: rgba(255,255,255,1.0);
+    color: #000;
+    font-size: 15px;
+    position:fixed;
+    top: 50px;
+    left: 0px;
+}
+#wrapper{
+    margin-bottom: 0px;
+}
+#coords {
+    width:auto;
+    background-color: rgba(255,255,255,1.0);
+    color: #000;
+    font-size: 15px;
+    position:fixed;
+    top: 80px;
+    left: 0px;
+
+}
+/* モーダル 背景エリア */
+#modal-bg {
+    display:none;
+    width:100%;
+    height:100%;
+    background-color: rgba(0,0,0,0.0);
+    -webkit-backdrop-filter: blur(20px);
+    backdrop-filter: blur(20px);
+    top:0;
+    left:0;
+    z-index: 0;
+    position:fixed;
+}
+.cross_cssbutton{height:40px; width:40px; display:block; position:fixed;z-index: 2;}
+#up_cssbutton:before{content:''; height:0; width:0; display:block; border:40px transparent solid; border-top-width:0; border-bottom-color:#333;top:0px;left:0px;}
+#down_cssbutton:before{content:''; height:0; width:0; display:block; border:40px transparent solid; border-bottom-width:0; border-top-color:#333;top:0px;left:0px;}
+#right_cssbutton:before{content:''; height:0; width:0; display:block; border:40px transparent solid; border-right-width:0; border-left-color:#333;top:0px; left:0px}
+#left_cssbutton:before{content:''; height:0; width:0; display:block; border:40px transparent solid; border-left-width:0; border-right-color:#333;top:0px; left:0px}

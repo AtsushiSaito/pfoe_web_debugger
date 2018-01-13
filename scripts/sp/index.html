@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="ja">
+<!--SP向けHTML-->
+<head>
+    <meta charset="utf-8">
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui, viewport-fit=cover">
+    <link rel="stylesheet" href="content/style.css">
+    <meta name="apple-mobile-web-app-title" content="PFoED" />
+</head>
+<body>
+    <div id="wrapper">
+        <div id="first_box">
+            <div id="header">PFoE WebDebugger</div>
+            <div id="graph-wrap">
+                <div id="graph" style="width:100%;height:150px;"></div>
+            </div>
+        </div>
+        <div id="status-column">
+            <div class="status-header" id="second-status-header">Robot Status</div>
+            <div class="status-box">
+                <div class="status-block">
+                    <div class="status-block-header">Sensor</div>
+                    <table>
+                        <tbody>
+                            <tr>
+                                <td>right_forward</td>
+                                <td><span id="right_forward">0</span></td>
+                            </tr>
+                            <tr>
+                                <td>right_side</td>
+                                <td><span id="right_side">0</span></td>
+                            </tr>
+                            <tr>
+                                <td>left_side</td>
+                                <td><span id="left_side">0</span></td>
+                            </tr>
+                            <tr>
+                                <td>left_forward</td>
+                                <td><span id="left_forward">0</span></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="status-block">
+                    <div class="status-block-header">Action</div>
+                    <table>
+                        <tbody>
+                            <tr>
+                                <td>linear_x</td>
+                                <td><span id="linear_x">0</span></td>
+                            </tr>
+                            <tr>
+                                <td>angular_z</td>
+                                <td><span id="angular_z">0</span></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="status-block">
+                    <div class="status-block-header">Parameter</div>
+                    <table>
+                        <tbody>
+                            <tr>
+                                <td>η</td>
+                                <td><span id="eta">0</span></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div id="footer">
+                <input class="header-menu-button" type="button" value="Reload" onclick="window.location.reload();" />
+                <input class="header-menu-button" id="modal-open" type="button" value="JoyPad" onclick="reque"/>
+                <input class="header-menu-button" type="button" value="FrontToggle" onclick="request.front_toggle = !request.front_toggle;WebButtons.callService(request);"/>
+                <input class="header-menu-button" type="button" value="MidToggle" onclick="request.mid_toggle = !request.mid_toggle;WebButtons.callService(request);"/>
+                <input class="header-menu-button" type="button" value="RearToggle" onclick="request.rear_toggle = !request.rear_toggle;WebButtons.callService(request);"/>
+            </div>
+        </div>
+        <div id="modal-main">
+            <span class="exit_cssbutton" id="pad_stop"></span>
+            <div id="modal-main_menu">
+                <input class="header-menu-button" type="button" value="FrontToggle" onclick="request.front_toggle = !request.front_toggle;WebButtons.callService(request);"/>
+                <input class="header-menu-button" type="button" value="MidToggle" onclick="request.mid_toggle = !request.mid_toggle;WebButtons.callService(request);"/>
+                <input class="header-menu-button" type="button" value="RearToggle" onclick="request.rear_toggle = !request.rear_toggle;WebButtons.callService(request);"/>
+            </div>
+            <!--<span class="cross_cssbutton" id="up_cssbutton"></span>
+            <span class="cross_cssbutton" id="down_cssbutton"></span>
+            <span class="cross_cssbutton" id="left_cssbutton"></span>
+            <span class="cross_cssbutton" id="right_cssbutton"></span>-->
+
+            <!--<div id="canvas_evenname">-</div>-->
+            <!--<div id="coords">X:<span id="x"></span> Y:<span id="y"></span> width:<span id="canvas_w"></span> height:<span id="canvas_h"></span></div>-->
+            <div id=canvas-box>
+                <canvas id="virtual-pad"></canvas>
+            </div>
+        </div>
+    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script><script src="https://static.robotwebtools.org/EventEmitter2/current/eventemitter2.min.js"></script>
+    <script src="https://static.robotwebtools.org/roslibjs/current/roslib.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script type="text/javascript" src="content/sp_main.js"></script>
+</body>
+</html>
