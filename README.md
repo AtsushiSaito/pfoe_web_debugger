@@ -9,7 +9,7 @@ PFoEの教示とリプレイが行えるパッケージ（[ryuichiueda/raspimous
 * パーティクルフィルタの状態をリアルタイムで可視化
 * センサ、速度の情報の表示
 * ラズパイマウスのトグルボタンを遠隔で操作 ※1
-* ラズパイマウスが操作できる仮想のジョイパッドコントローラ ※2
+* ラズパイマウスを操作できる仮想のジョイパッドコントローラ ※2
 * PCだけではなく、スマートフォンでも利用可能 ※3
 
 ※1:使用するには（[ryuichiueda/raspimouse_ros_2](https://github.com/ryuichiueda/raspimouse_ros_2)）を一部変更した（[AtsushiSaito/raspimouse_ros_2](https://github.com/AtsushiSaito/raspimouse_ros_2)）が必要です。
