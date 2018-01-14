@@ -37,7 +37,7 @@ ros-kinetic-rosbridge-suiteをインストールします。
 ```
 $ sudo apt install ros-kinetic-rosbridge-suite
 ```
-以下のコマンドで実行
+以下のコマンドを実行
 ```
 $ cd ~/catkin_ws/src/
 $ git clone https://github.com/AtsushiSaito/pfoe_web_debugger.git
