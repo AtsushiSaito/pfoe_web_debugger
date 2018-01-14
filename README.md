@@ -20,7 +20,7 @@ PFoEの教示とリプレイが行えるパッケージ（[ryuichiueda/raspimous
 
 ## Demo
 
-rinnku
+[PFoE WebDebugger - YouTube](https://www.youtube.com/watch?v=aJeUpCKPnZ4)
 
 ## Requirements
 * Raspberry Pi Mouse
