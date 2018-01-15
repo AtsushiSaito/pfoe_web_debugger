@@ -59,3 +59,23 @@ IPアドレス:8000
 
 ### PC版
 <img src=https://github.com/AtsushiSaito/image_data/blob/master/pfoe_web_debugger_pc.png width=100%>
+
+## License
+MIT License
+### Includings & References
+
+* [plotly/plotly.js](https://github.com/plotly/plotly.js) - MIT 
+  * contents/index.html
+  * contents/pc_main.js
+  * sp/contents/index.html
+  * sp/contents/sp_main.js
+
+* [RobotWebTools/roslibjs]( https://github.com/RobotWebTools/roslibjs ) - BSD 3-clause
+  * contents/index.html
+  * contents/pc_main.js
+  * sp/contents/index.html
+  * sp/contents/sp_main.js
+
+* [jquery/jquery]( https://github.com/jquery/jquery ) - MIT 
+  * sp/contents/index.html
+  * sp/contents/sp_main.js
