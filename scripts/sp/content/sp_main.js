@@ -8,7 +8,7 @@ ros.on('close', function(){ console.log("WebSocket: closed");});
 var pfoe_node = new ROSLIB.Topic({
     ros : ros,
     name : '/pfoe_out',
-    messageType : 'raspimouse_gamepad_teach_and_replay_clustering/PFoEOutput'
+    messageType : 'raspimouse_gamepad_teach_and_replay/PFoEOutput'
 });
 
 var buttons_node = new ROSLIB.Topic({
