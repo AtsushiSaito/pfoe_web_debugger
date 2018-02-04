@@ -8,7 +8,7 @@ ros.on('close', function(){ console.log("WebSocket: closed");});
 var pfoe_node = new ROSLIB.Topic({
     ros : ros,
     name : '/pfoe_out',
-    messageType : 'raspimouse_gamepad_teach_and_replay/PFoEOutput'
+    messageType : 'raspimouse_gamepad_teach_and_replay_clustering/PFoEOutput'
 });
 
 var buttons_node = new ROSLIB.Topic({
@@ -71,6 +71,9 @@ buttons_node.subscribe(function(message) {
     request.rear_toggle = message.rear_toggle;
 });
 
+delta_x = 0;
+delta_y = 0;
+
 function cmd_pub(){
     if(request.mid_toggle == false){
         var msg = new ROSLIB.Message({linear:{x:-delta_y,y:0,z:0}, angular:{x:0,y:0,z:-delta_x}});
@@ -82,18 +85,21 @@ setInterval(cmd_pub,100);
 var max_event;
 var recent_max_event = 0;
 
+var max_prob;
+var recent_max_prob = 0;
+
 pfoe_node.subscribe(function(message) {
     particles_pos = message.particles_pos;
     eta = message.eta;
     document.getElementById("eta").innerHTML = Math.round(eta*1000)/1000;
-    for (i = 0; i < n; i++) {
+    for (i = 0; i < recent_max_event; i++) {
         y[i] = 0;
     }
     max_event = Math.max.apply(null,particles_pos);
     if(max_event > recent_max_event){
         recent_max_event = max_event;
-        console.log("オーバー", max_event, recent_max_event)
-        for (i = 0; i < max_event; i++){
+        console.log("Over",recent_max_event)
+        for (i = 0; i < recent_max_event; i++){
             x[i] = i;
         }
     }
@@ -103,18 +109,8 @@ pfoe_node.subscribe(function(message) {
 var n = 1000;
 var x = [], y = [];
 
-for (i = 0; i < n; i++) {
+for (i = 0; i < recent_max_event; i++) {
     y[i] = 0;
-}
-
-function normalize(){
-    var sum = 0.0;
-    for (var i = 0; i < n; i++) {
-        sum += y[i];
-    }
-    for (var i = 0; i < n; i++) {
-        y[i] /= sum;
-    }
 }
 
 Plotly.plot('graph', [{
@@ -122,8 +118,8 @@ Plotly.plot('graph', [{
     y: y,
     line: {width: 0.5,color: 'rgb(0, 0, 0)'}
 }], {
-    xaxis: {range: [0, max_event],showgrid: false},
-    yaxis: {range: [0, 0.25]},
+    xaxis: {range: [0, 1000],showgrid: false},
+    yaxis: {range: [0, 0.01]},
     margin: {
         l: 25,
         r: 25,
@@ -134,18 +130,21 @@ Plotly.plot('graph', [{
 
 function compute () {
     for (var i = 0; i < n; i++) {
-        y[particles_pos[i]] += 0.1;
+        y[particles_pos[i]] += 1;
+    }
+    for (var i = 0; i < recent_max_event; i++) {
+        if(y[i] > recent_max_prob){
+            recent_max_prob = y[i];
+        }
     }
 }
 
-var changes = {
-    xaxis: {range: [0, max_event]}
-};
-
 function update () {
     compute();
-    normalize();
-    Plotly.relayout('graph', changes);
+    Plotly.relayout('graph', {
+        xaxis: {range: [0, recent_max_event],showgrid: false},
+        yaxis: {range: [0, recent_max_prob]}
+    });
     //Plotly.redraw('graph');
     Plotly.animate('graph', {
         data: [{x: x,y: y}],
