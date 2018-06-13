@@ -60,7 +60,7 @@ pfoe_node.subscribe(function(message) {
     particles_pos = message.particles_pos;
     eta = message.eta;
     document.getElementById("eta").innerHTML = Math.round(eta*1000)/1000;
-    for (i = 0; i < n; i++) {
+    for (i = 0; i < recent_max_event; i++) {
         y[i] = 0;
     }
     max_event = Math.max.apply(null,particles_pos);
@@ -94,16 +94,16 @@ lightsensors.subscribe(function(message) {
 var n = 1000;
 var x = [], y = [];
 
-for (i = 0; i < n; i++) {
+for (i = 0; i < recent_max_event; i++) {
     y[i] = 0;
 }
 
 function normalize(){
     var sum = 0.0;
-    for (var i = 0; i < n; i++) {
+    for (var i = 0; i < recent_max_event; i++) {
         sum += y[i];
     }
-    for (var i = 0; i < n; i++) {
+    for (var i = 0; i < recent_max_event; i++) {
         y[i] /= sum;
     }
 }
@@ -113,14 +113,14 @@ Plotly.plot('graph', [{
     y: y,
     type: 'bar',
 }], {
-    xaxis: {range: [0, max_event],showgrid: false},
-    yaxis: {range: [0, 0.5]},
-    margin: {
-        l: 25,
-        r: 25,
-        b: 25,
-        t: 25,
-    }
+	xaxis: {range: [0, max_event],showgrid: false,title:"Episodes [0.1s]"},
+    yaxis: {range: [0, 0.5],title:"Probability (Weight)"},
+    /*margin: {
+        l: 45,
+        r: 45,
+        b: 45,
+        t: 45,
+    }*/
 },{displayModeBar: false,staticPlot: true})
 
 function compute () {
@@ -130,7 +130,7 @@ function compute () {
 }
 
 var changes = {
-    xaxis: {range: [0, max_event]}
+    xaxis: {range: [0, max_event],title:"Episodes [0.1s]"}
 };
 
 function update () {

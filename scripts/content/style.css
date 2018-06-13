@@ -1,7 +1,7 @@
 body {
     width:1400px;
     color: black;
-    background-color: #F2F2F2;
+    background-color: #464646;
     margin-right: auto;
     margin-left : auto;
 }
@@ -11,6 +11,7 @@ div#header {
     font-size: 30px;
     background-color: #FFD464;
     margin:0 0 10 0px;
+	border: solid 1px #000000;
     padding: 20px;
 }
 div#footer {
@@ -22,18 +23,19 @@ div#footer {
 
 div#graph_header {
     background-color: #FFF;
-    font-size: 25px;
+    font-size: 15px;
     text-align: center;
 }
 .info_list {
     font-size: 15px;
     color: black;
-    padding: 5px;
+	font-size: 20px;
+    padding: 10px;
 }
 .info_header {
     background-color: #6699ff;
-    padding: 0 10 0 10px;
-    font-size: 20px;
+    padding: 0 20 0 20px;
+    font-size: 25px;
     text-align: center;
 }
 .info {
@@ -42,6 +44,7 @@ div#graph_header {
     border: solid 1px gray;
     vertical-align: top;
     display: inline-block;
+	border: solid 1px #000000;
     width:490px;
 }
 .plot {
@@ -49,4 +52,28 @@ div#graph_header {
     vertical-align: top;
     display: inline-block;
     border: solid 1px gray;
+}
+
+#button-layout {
+	text-align: center;
+}
+
+.btn{
+	display: inline-block;
+	text-decoration: none;
+	background: #87befd;
+	color: #FFF;
+	width: 120px;
+	font-size: 18px;
+	height: 120px;
+	line-height: 120px;
+	border-radius: 50%;
+	text-align: center;
+	vertical-align: middle;
+	overflow: hidden;
+	transition: .4s;
+}
+
+.btn:hover{
+	background: #668ad8;
 }
